@@ -1,0 +1,18 @@
+#!/bin/bash
+
+echo -e "\e[0;35m ---------Pre-Plan Start ----------\033[0m"
+echo
+FILES=`find . -type f -exec grep -l "nonsensitive" {} \;`
+if [ ! -z "$FILES" ]; then
+        echo -e "\e[0;31mFAILED due to usage of forbidden function \"nonsensitive\" \033[0m"
+        echo
+        echo "List of Invalid File(s):"
+        echo $FILES
+        echo
+        echo -e "\e[0;35m ---------Pre-Plan End ----------\033[0m"
+        exit 1
+fi
+echo
+echo " Pre plan success !"
+echo
+echo -e "\e[0;35m ---------Pre-Plan End ----------\033[0m"
